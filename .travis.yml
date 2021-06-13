@@ -2,12 +2,8 @@ sudo: required
 services:
   - docker
 
-before_install
+before_install:
   - docker build -t bankincity/docker-react -f Dockerfile.dev .
 
 script:
-  - docker run USERNAME/docker-react npm run test -- --coverage
-
-
-  script:
-  - docker run -e CI=true USERNAME/docker-react npm run test
+  - docker run bankincity/docker-react npm run test -- --coverage
